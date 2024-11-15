@@ -1,0 +1,807 @@
+/* Reset basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+/* Initially, navbar is fixed at the top */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+  transition: top 0.3s ease; /* Smooth transition for showing/hiding */
+}
+
+/* Class to hide navbar */
+.navbar.hidden {
+  top: -100px; /* Move navbar out of view */
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add slight shadow for visibility */
+  opacity: 0.8;
+}
+
+.navbar .logo h2 {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+}
+.navbar .logo{
+  display: flex;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  position: relative;
+  right: -300px;
+  gap: 30px; /* Space between the items */
+}
+
+.nav-links li a {
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:not(:hover){
+  transition:0.5s;
+}
+/* Underline effect on hover */
+.nav-links li a:hover {
+  color: #E6E6FA; /* Change text color on hover */
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #E6E6FA; /* Underline color */
+  transition: width 0.3s ease;
+}
+
+
+.nav-links li a:not(:hover){
+  transition:0.5s;
+}
+.nav-links li a:hover::after {
+  width: 100%; /* Make the underline span the width of the text */
+}
+
+/* Active link styling */
+.nav-links li a.active {
+  color: #E6E6FA; /* Active link color */
+  font-weight: bold; /* Optional: Make active link bold */
+}
+
+.nav-links li a.active::after {
+  width: 100%; /* Active link gets the underline too */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  right: -250px; /* Start off-screen */
+  background-color: #000;
+  overflow-x: hidden;
+  transition: 0.3s ease-in-out; /* Smooth transition */
+  padding-top: 60px;
+  z-index: 9999;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+
+.sidebar ul li {
+  padding: 15px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+/* Call to Action Button */
+.cta-btn {
+  background-color: #E6E6FA; /* Button color */
+  color: #fff;
+  text-decoration: none;
+  list-style: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.cta-btn:not(:hover){
+  transition:0.5s;
+}
+.cta-btn:hover {
+  background-color: #E6E6FA; /* Darken button on hover */
+}
+/* Close Button Style */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width of the viewport */
+  /* background-image: url('../images/laptop.jpg');  */
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Hero Content */
+.hero .hero-content {
+  z-index: 2; /* Ensure text is above the image */
+  animation: zoomInText 2s ease-in-out; /* Apply zoom-in effect only once */
+}
+
+/* Hero Heading */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+}
+
+/* Zoom-In Effect for Text */
+@keyframes zoomInText {
+  0% {
+      transform: scale(0.8); /* Start smaller */
+      opacity: 0; /* Invisible at the start */
+  }
+  50% {
+      transform: scale(1.1); /* Zoom in slightly */
+      opacity: 1; /* Make visible */
+  }
+  100% {
+      transform: scale(1); /* Return to normal size */
+      opacity: 1; /* Keep visible */
+  }
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.25rem;
+}
+
+/* Overall About Section Styling */
+.about-section {
+  background-color: #000;
+  /* background: radial-gradient(circle,#333,black); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+}
+
+.brand-name {
+  color: #D8B7DD;
+}
+
+/* Container to hold the two columns */
+.about-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Max width for content alignment */
+}
+
+/* Left Side Content Styling (Logo) */
+.about-content-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.about-content-left img {
+  width: 500px; /* Adjust as needed */
+}
+
+/* Right Side Content Styling (Heading and Text) */
+.about-content-right {
+  flex: 1;
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center content horizontally */
+}
+
+.about-content-right h2 {
+  font-size: 2rem;
+  text-align: center; /* Center the heading */
+  margin-bottom: 10px;
+}
+
+.about-content-right p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center; /* Center the text */
+}
+
+
+/* Values Section */
+#values {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(15deg,#E6E6FA 50%, #000 50%);
+}
+
+/* Section Title Styling */
+#values h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Container for the Values using Flexbox */
+.values-container {
+  display: flex;
+  flex-wrap: wrap; /* Ensures values will wrap to the next row */
+  justify-content: center; /* Center the items horizontally */
+  gap: 30px; /* Space between the items */
+  margin-top: 20px;
+}
+
+/* Individual Value Styling */
+.value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+/* Icon Styling */
+.value i {
+  font-size: 3rem;
+  color: #333; /* Main icon color */
+  margin-bottom: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Title Styling */
+.value h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+  color: #666;
+}
+
+/* Description Styling */
+.value p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+.value:not(:hover){
+  transition:0.5s;
+}
+/* Hover Effect for Each Value */
+.value:hover {
+  transform: translateY(-10px);
+  background-color: #E6E6FA;
+  transition: 0.5s;
+  box-shadow:1px 1px 10px black;
+}
+
+.value:not(:hover){
+  transition:0.5s;
+}
+.value:hover i {
+  color: black; /* Change icon color on hover */
+  transform: scale(1.2); /* Enlarge icon slightly */
+}
+
+
+/* Services Section */
+
+
+.services {
+
+  background-color: #000;
+  padding-top: 90px;
+  text-align: center;
+  height: 100vh;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color:white;
+  font-weight: bold;
+}
+
+/* Service Container */
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Space between the cars */
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+/* Individual Service Card */
+.service-card {
+  background-color: #E6E6FA;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+/* Icon Styles */
+.service-card .icon {
+  font-size: 40px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Title and Description */
+.service-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+.service-card:not(:hover){
+  transition:0.5s;
+}
+/* Hover Effect */
+.service-card:hover {
+  transform: translateY(-10px); /* Slight hover effect */
+  background-color: white;
+}
+.service-card:not(:hover){
+  transition:0.5s;
+}
+
+.service-card:hover .icon {
+  transform: scale(1.2);
+  color: black;
+}
+.service-card>.icon:not(:hover){
+  transition:0.5s;
+}
+/* Contact Section */
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #E6E6FA; /* Light Lavender background */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#contact-form {
+  background-color: #fff; /* White form background */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 100%;
+  max-width: 500px; /* Limit form width */
+  margin-top: 20px; /* Space between heading and form */
+}
+
+/* Heading Styling */
+#contact h2 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 20px; /* Space between heading and form */
+  text-align: center;
+  color: #000; /* Black text for heading */
+}
+
+/* Form Elements Styling */
+#contact-form input, 
+#contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #ddd; /* Light gray border */
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333; /* Dark text for readability */
+  background-color: #f9f9f9; /* Slightly off-white background */
+  transition: border-color 0.3s ease;
+}
+
+#contact-form input:focus, 
+#contact-form textarea:focus {
+  border-color: #000; /* Black border on focus */
+  outline: none;
+}
+
+/* Textarea Styling */
+#contact-form textarea {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 150px;
+}
+
+/* Submit Button Styling */
+#contact-form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2rem;
+  background-color: #000; /* Black button */
+  color: white; /* White text */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+  background-color: #444; /* Darker black on hover */
+}
+
+/* Footer Styling */
+
+footer {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px 0;
+  width: 100%; /* Ensure full-width */
+  height: 100vh;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 30px;
+  flex-wrap: wrap; /* Allow wrapping for mobile */
+}
+
+.footer-left, .footer-right {
+  width: 48%;
+}
+
+.footer-left h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-left ul {
+  list-style: none;
+}
+
+.footer-left ul li {
+  margin: 10px 0;
+}
+
+.footer-left ul li a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-left ul li a:hover {
+  color: #fff;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon {
+  color: #bbb;
+  font-size: 1.5rem;
+  margin-right: 15px; /* Space between icons */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #fff;
+}
+
+.separator {
+  color: #bbb;
+  margin: 0 15px;
+  font-size: 1.5rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  position: relative;
+}
+
+.footer-bottom h1 {
+  font-size: 13vw; /* Responsive font size based on viewport width */
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+  
+  @media (max-width: 768px) {
+    /* Navbar should be hidden when scrolling down */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 20px 40px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0.8;
+      transition: top 0.3s ease; /* Smooth transition for showing/hiding */
+    }
+  
+    /* Class to hide navbar */
+    .navbar.hidden {
+      top: -100px; /* Move navbar out of view */
+    }
+  }
+  
+
+  /* Navbar */
+  .navbar .nav-links {
+      display: none; /* Hide navbar links on mobile */
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+  }
+
+  .navbar .hamburger-menu {
+      display: block; /* Show hamburger icon on mobile */
+  }
+
+  .navbar .nav-links.active {
+      display: flex; /* Show navbar links when active class is added */
+  }
+
+  .navbar .logo h2 {
+      font-size: 1rem;
+  }
+  .navbar .logo{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 200px;
+      margin-left: -30px;
+  }
+  .navbar .logo img{
+      width: 30px;
+  }
+
+  /* Hero Section */
+  .hero h1 {
+      font-size: 2.5rem; /* Smaller hero heading */
+  }
+
+  .hero p {
+      font-size: 1rem; /* Smaller hero paragraph */
+  }
+
+  /* About Section */
+  .about-section{
+    height: 80vh;
+  }
+  .about-content-left>img{
+    width: 80%;
+  }
+  .about-container {
+      flex-direction: column; /* Stack columns vertically */
+  }
+
+  .about-content{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%; /* Full width */
+      padding: 20px; /* Reduce padding */
+  }
+
+  /* Values Section */
+
+  .core-values {
+      padding: 3px;
+    }
+  
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+  
+    /* Stack the cards vertically on mobile */
+    .values-container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+  
+    .value {
+      width: 100%; /* Take up most of the screen width */
+      flex-direction: row; /* Align icon and text horizontally */
+      margin-bottom: 20px; /* Space between cards */
+      padding: 20px; /* Space inside the cards */
+      text-align: left; /* Align text to the left */
+    }
+  
+    /* Icon styles on mobile */
+    .value i {
+      margin-right: 15px; /* Space between icon and content */
+      font-size: 2.5rem; /* Slightly smaller icons on mobile */
+    }
+  
+    /* Content styling on mobile */
+    .value .content {
+      flex: 1; /* Make content take up the remaining space */
+    }
+  
+    .value h3 {
+      font-size: 1.2rem; /* Smaller font size for headings */
+      margin-bottom: 5px;
+    }
+  
+    .value p {
+      font-size: 0.9rem; /* Slightly smaller text on mobile */
+    }
+
+  /* Services Section */
+  .services {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      height: auto;
+  }
+  .service-card{
+    width: 100%;
+  }
+
+  /* Contact Section */
+  .contact form {
+      padding:2px; /* Add padding to the form */
+      height: auto;
+  }
+  /* Footer */
+  footer {
+      font-size: 0.9rem; /* Smaller footer font size */
+      height: 50vh;
+  }
+  .footer-left ul li {
+    margin: -4px;
+  }
+  .footer-bottom h1{
+    font-size: 4rem;
+  }
+  footer .social-icon {
+      font-size: 1rem; /* Adjust social icon size */
+  }
+   /* Show the menu button on mobile */
+   .menu-btn {
+    display: block;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* When Sidebar is active, slide it in */
+  .sidebar{
+    width: 100%;
+    right: -500px;
+  }
+  .sidebar.active {
+      right: 0; /* Bring sidebar into view */
+  }
+}
+
+
